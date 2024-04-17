@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style/reset.css" />
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="icon" href="./img/title-logo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Spaas Candles</title>
+  </head>
+  <body class="body">
+    <header class="header">
+      <div class="container">
+        <div class="header__wrapper">
+          <div class="header__info-wrapper">
+            <h2 class="header__title-line">VT7</h2>
+            <div class="header__order">
+              numer zam. :
+              <p class="header__order-text">1267777</p>
+            </div>
+            <div class="header__total">
+              Do konca :
+              <p class="header__order-text">120000</p>
+            </div>
+            <div class="header__total-cardboard">
+              Zost :
+              <p class="header__order-text">35kar</p>
+            </div>
+          </div>
+          <form class="header__form" action="/submit" method="post">
+            <label class="header__form-text" for="user"
+              >Wybierz Uzytkownika</label
+            >
+            <select class="header__select" id="user" name="user">
+              <option value="Operator">Operator</option>
+              <option value="Lider">Lider</option>
+              <option value="Magazyn">Magazyn</option>
+              <option value="Mechanick">Mechanic</option>
+              <option value="Kerownik">Kerownik</option>
+            </select>
+            <label class="header__form-password-text" for="password"
+              >Haslo:</label
+            >
+            <input
+              class="header__form-password"
+              type="password"
+              id="password"
+              name="password"
+            />
+            <input class="header__btn-login" type="submit" value="ZALOGUJ" />
+          </form>
+        </div>
+      </div>
+    </header>
+    <main class="main">
+      <section class="order container">
+        <div class="order-wrapper">
+          <div class="order__info"></div>
+          <div class="order__total"></div>
+          <div class="accident"></div>
+          <div class="order__the-waste"></div>
+        </div>
+      </section>
+      <section class="skid"></section>
+      <section class="delivery"></section>
+      <section class="calculator"></section>
+      <section class="mechanic"></section>
+      <section class="schedule"></section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,88 @@
+.body {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.header {
+  background-color: #d2d2d2;
+  padding: 15px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__title-line {
+  font-size: 80px;
+  font-weight: 700;
+  align-self: center;
+}
+
+.header__info-wrapper {
+  margin-left: 50px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  padding: 8px 8px;
+  border: 2px solid darkgray;
+}
+
+.header__order {
+  display: flex;
+  padding: 3px;
+  column-gap: 5px;
+  justify-content: space-between;
+  border: 1px solid darkgray;
+}
+
+.header__total {
+  display: flex;
+  padding: 3px;
+  column-gap: 5px;
+  justify-content: space-between;
+  border: 1px solid darkgray;
+}
+
+.header__total-cardboard {
+  display: flex;
+  padding: 3px;
+  column-gap: 5px;
+  justify-content: space-between;
+  border: 1px solid darkgray;
+}
+
+.header__form {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  row-gap: 10px;
+  border: 1px solid darkgray;
+}
+
+.header__select,
+.header__form-password {
+  padding: 4px 2px;
+  border: 1px solid darkgray;
+}
+
+.header__btn-login {
+  padding: 5px;
+  border: 1px solid darkgray;
+}
+
+.header__form-password-text,
+.header__form-text {
+  font-size: 16px;
+}
