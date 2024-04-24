@@ -2,15 +2,17 @@ let userAge = prompt("Скільки тобі років?");
 let userCity = prompt("В якому місті ти проживаєш?");
 let userFavoriteSport = prompt("Який твій улюблений вид спорту");
 
-const city = ["Київ", "Лондон", "Вашингтон"];
-const country = ["Україна", "Велика Британія", "Америка"];
+let citylondon = "Лондон";
+let cityUsa = "Америка";
+let citykiev = "Київ";
 
-let isCapital = city.includes(userCity);
-
-if (!isCapital) {
-  alert(`Тобі ${userAge} років. Ти живеш в місті ${userCity}`);
+if (citykiev == userCity) {
+  alert(`Тобі ${userAge} років. Ти живеш у столиці Україна`);
+} else if (citylondon == userCity) {
+  alert(`Тобі ${userAge} років. Ти живеш в столиці Велика Британія`);
+  12;
+} else if (cityUsa == userCity) {
+  alert(`Тобі ${userAge} років. Ти живеш в столиці Америка`);
 } else {
-  let index = city.indexOf(userCity);
-  let capital = country[index];
-  alert(`Тобі ${userAge} років. Ти живеш у столиці ${capital}`);
+  alert(`Тобі ${userAge} років. Ти живеш в місті ${userCity}`);
 }

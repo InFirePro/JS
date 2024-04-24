@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body></body>
+  <script>
+    let number = parseInt(prompt("Введіть ціле число"));
+
+    if (!isNaN(number) && Number.isInteger(number) && number >=1 1) {
+      let isPrime = true;
+      for (let i = 2; i <= Math.sqrt(number); i++) {
+        if (number % i === 0) {
+          isPrime = false;
+          break;
+        }
+      }
+      if (isPrime) {
+        console.log("Число", number, "є простим.");
+      } else {
+        console.log("Число", number, "не є простим.");
+      }
+    } else {
+      console.log("Введено некоректне ціле число.");
+    }
+  </script>
+</html>

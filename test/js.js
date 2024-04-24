@@ -1,10 +1,7 @@
-let x = prompt();
-if (x > 0) {
-  alert("1");
-} else if (x < 0) {
-  alert("-1");
-} else {
-  alert("1");
+let sum = 0;
+let gg = 80;
+for (let i = 30; i <= gg; i += 2) {
+  suma += i;
+  console.log(i);
 }
-
-let result = a + b < 4 ? "нижче" : "вижче";
+console.log(sum);
