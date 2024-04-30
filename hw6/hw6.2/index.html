@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body></body>
+  <script>
+    function calculateAverage(arr) {
+      const numericValues = arr.filter((item) => typeof item === "number");
+      const sum = numericValues.reduce(
+        (acc, currentValue) => acc + currentValue,
+        0,
+      );
+      const average = numericValues.length > 0 ? sum / numericValues.length : 0;
+      return average;
+    }
+    const arr = [1, "two", 3, "four", 5];
+    const average = calculateAverage(arr);
+    console.log(average);
+  </script>
+</html>

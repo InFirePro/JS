@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body></body>
+  <script>
+    function removeCharsFromString(str, charsToRemove) {
+      return str.replace(new RegExp(charsToRemove.join("|"), "g"), "");
+    }
+    const result = removeCharsFromString(" hello world", ["l", "d"]);
+    console.log(result);
+  </script>
+</html>
