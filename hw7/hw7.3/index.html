@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body></body>
+  <script>
+    function userInput() {
+      for (let i = 0; i < 10; i++) {
+        let input = prompt("Введіть число більше 100:");
+
+        if (input === null || isNaN(input)) {
+          console.log(
+            "Ви ввели текст або відмінили введення. Останнє введене значення: " +
+              input,
+          );
+          return;
+        } else if (Number(input) > 100) {
+          console.log("Ваше введення: " + input);
+          return;
+        } else {
+          console.log("Введіть число, більше 100!");
+        }
+      }
+      console.log("Досягнуто максимальну кількість введень");
+    }
+
+    userInput();
+  </script>
+</html>
