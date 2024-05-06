@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body></body>
+  <script>
+    let ladder = {
+      step: 0,
+      up: function () {
+        this.step++;
+        return this;
+      },
+      down: function () {
+        this.step--;
+        return this;
+      },
+      showStep: function () {
+        console.log("Поточний крок: " + this.step);
+        return this;
+      },
+    };
+
+    ladder.up().up().down().showStep();
+  </script>
+</html>
