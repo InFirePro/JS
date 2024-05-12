@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body></body>
+  <script>
+    const company = {
+      dep1: [
+        { name: "Іван", salary: 1000 },
+        { name: "Марія", salary: 1200 },
+      ],
+      dep2: [
+        { name: "Петро", salary: 1500 },
+        { name: "Олена", salary: 1300 },
+      ],
+    };
+    function calculateDepartmentSalary(department) {
+      let departmentSalary = 0;
+      department.forEach((employee) => {
+        departmentSalary += employee.salary;
+      });
+      return departmentSalary;
+    }
+    function calculateTotalSalary(company) {
+      let totalSalary = 0;
+      for (let department in company) {
+        totalSalary += calculateDepartmentSalary(company[department]);
+      }
+      return totalSalary;
+    }
+    const totalSalary = calculateTotalSalary(company);
+    console.log("Загальна сума зарплат:", totalSalary);
+  </script>
+</html>

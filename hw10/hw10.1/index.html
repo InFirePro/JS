@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body></body>
+  <script>
+    // const userName = prompt("Введіть своє ім'я");
+    // const userAge = prompt("Скільки тобі років?");
+    // const userAddress = prompt("твоє місце проживання");
+    // const person = {
+    //   name: userName,
+    //   age: userAge,
+    //   city: userAddress,
+    // };
+    //
+    // console.log(Object.values(person));
+
+    function Person(userName, userAge, userAddress) {
+      this.userName = userName;
+      this.userAge = userAge;
+      this.userAddress = userAddress;
+    }
+    const userName = prompt("Введіть своє ім'я");
+    const userAge = prompt("Скільки тобі років?");
+    const userAddress = prompt("твоє місце проживання");
+    const firstPerson = new Person(userName, userAge, userAddress);
+
+    console.log(Object.values(firstPerson));
+  </script>
+</html>

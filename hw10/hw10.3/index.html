@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body></body>
+  <script>
+    const contactList = {
+      contacts: [
+        {
+          name: "John",
+          phone: "0987326728",
+          email: "ivan@gmail.com",
+        },
+        {
+          name: "John2",
+          phone: "0987326728",
+          email: "ivan@gmail.com",
+        },
+        {
+          name: "John3",
+          phone: "0987326728",
+          email: "ivan@gmail.com",
+        },
+      ],
+
+      searchName: function (name) {
+        return this.contacts.find((contact) => contact.name === name);
+      },
+      addContact: function (name, phone, email) {
+        this.contacts.push({ name, phone, email });
+      },
+    };
+    console.log(contactList.searchName("John2"));
+    contactList.addContact("John4", "0987326728", "ivan@gmail.com");
+    console.log(contactList.contacts);
+  </script>
+</html>
