@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Таблиця Піфагора, Зміна кольору тексту, Випадкове зображення</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 50%;
+        margin: 20px auto;
+      }
+      th,
+      td {
+        border: 1px solid black;
+        padding: 10px;
+        text-align: center;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      #text-block {
+        font-size: 20px;
+        color: black; /* Початковий колір тексту */
+        margin: 20px;
+        text-align: center;
+      }
+      #color-button,
+      #new-image-button {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        font-size: 16px;
+      }
+      #image-container {
+        text-align: center;
+        margin: 20px;
+      }
+      #image-container img {
+        max-width: 100%;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="text-align: center">Таблиця Піфагора (10×10)</h1>
+    <div id="table-container" style="text-align: center"></div>
+    <div id="text-block">
+      Це блок із текстом. Натисніть кнопку, щоб змінити колір тексту.
+    </div>
+    <button id="color-button">Змінити колір</button>
+    <div id="image-container">
+      <img id="random-image" src="" alt="Випадкове зображення" />
+    </div>
+    <button id="new-image-button">Показати нове зображення</button>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Створення таблиці Піфагора
+        const tableContainer = document.getElementById("table-container");
+        const table = document.createElement("table");
+
+        for (let i = 0; i <= 10; i++) {
+          const tr = document.createElement("tr");
+
+          for (let j = 0; j <= 10; j++) {
+            let cell;
+            if (i === 0 && j === 0) {
+              cell = document.createElement("th");
+            } else if (i === 0) {
+              cell = document.createElement("th");
+              cell.textContent = j;
+            } else if (j === 0) {
+              cell = document.createElement("th");
+              cell.textContent = i;
+            } else {
+              cell = document.createElement("td");
+              cell.textContent = i * j;
+            }
+            tr.appendChild(cell);
+          }
+          table.appendChild(tr);
+        }
+
+        tableContainer.appendChild(table);
+
+        // Зміна кольору тексту при натисканні на кнопку
+        const textBlock = document.getElementById("text-block");
+        const colorButton = document.getElementById("color-button");
+        let isOriginalColor = true;
+
+        colorButton.addEventListener("click", function () {
+          if (isOriginalColor) {
+            textBlock.style.color = "red"; // Новий колір тексту
+          } else {
+            textBlock.style.color = "black"; // Початковий колір тексту
+          }
+          isOriginalColor = !isOriginalColor;
+        });
+
+        // Показ випадкового зображення
+        const imageContainer = document.getElementById("random-image");
+        const newImageButton = document.getElementById("new-image-button");
+        const images = [
+          "images/1.jpg",
+          "images/2.jpg",
+          "images/3.jpg",
+          "images/4.jpg",
+          "images/5.jpg",
+          "images/6.jpg",
+          "images/7.jpg",
+          "images/8.jpg",
+          "images/9.jpg",
+        ];
+
+        function showRandomImage() {
+          const randomIndex = Math.floor(Math.random() * images.length);
+          imageContainer.src = images[randomIndex];
+        }
+
+        newImageButton.addEventListener("click", showRandomImage);
+
+        // Показати випадкове зображення при завантаженні сторінки
+        showRandomImage();
+      });
+    </script>
+  </body>
+</html>
