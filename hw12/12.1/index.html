@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Переадресація за посиланням</title>
+    <script>
+      let userLink = "";
+
+      function getLink() {
+        userLink = prompt("Будь ласка, введіть посилання:");
+      }
+
+      function redirectToLink() {
+        if (userLink) {
+          window.location.href = userLink;
+        } else {
+          alert("Будь ласка, спочатку введіть посилання.");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="getLink()">Ввести посилання</button>
+    <button onclick="redirectToLink()">Перейти за посиланням</button>
+  </body>
+</html>

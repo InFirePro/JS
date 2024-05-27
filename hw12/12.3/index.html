@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Список завдань (To-Do List)</title>
+  </head>
+  <body>
+    <div id="todo-container">
+      <h1>Список завдань</h1>
+      <input type="text" id="new-task" placeholder="Введіть нове завдання" />
+      <button id="add-task-button">Додати</button>
+      <ul id="todo-list"></ul>
+    </div>
+    <script>
+      document
+        .getElementById("add-task-button")
+        .addEventListener("click", function () {
+          const taskInput = document.getElementById("new-task");
+          const taskText = taskInput.value.trim();
+          if (taskText !== "") {
+            const taskList = document.getElementById("todo-list");
+            const newTask = document.createElement("li");
+            newTask.innerHTML = `${taskText} <button class="delete-button">Видалити</button>`;
+            taskList.appendChild(newTask);
+            taskInput.value = "";
+          }
+        });
+
+      document
+        .getElementById("todo-list")
+        .addEventListener("click", function (event) {
+          if (event.target.classList.contains("delete-button")) {
+            const taskItem = event.target.parentElement;
+            taskItem.remove();
+          }
+        });
+    </script>
+  </body>
+</html>

@@ -4,6 +4,23 @@
     <meta charset="UTF-8" />
     <title>Title</title>
   </head>
-  <body></body>
-  <script src="js.js"></script>
+  <body>
+    <div>
+      <button id="addUrl">Введіть посилання</button>
+      <button id="child">перейти за посиланням</button>
+    </div>
+  </body>
+  <script>
+    const parent = document.getElementById("parent");
+    const child = document.getElementById("child");
+
+    parent.addEventListener("click", function (event) {
+      alert("обробка батьківського");
+    });
+
+    child.addEventListener("click", function (event) {
+      alert("обробка дочірнього");
+      event.stopPropagation();
+    });
+  </script>
 </html>
