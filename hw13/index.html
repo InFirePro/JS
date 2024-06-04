@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h2>We would like to help you</h2>
+      <form action="" id="myForm" method="post">
+        <input id="name" type="text" name="userName" placeholder="Name" />
+        <span id="nameError" class="error"></span><br />
+        <input
+          type="text"
+          id="messageUser"
+          name="userMessage"
+          placeholder="Message"
+        />
+        <span id="messageError" class="error"></span><br />
+        <p>HOW TO ANSWER YOU?</p>
+        <input
+          type="text"
+          id="numberPhone"
+          name="userNumPhone"
+          placeholder="Phone number"
+        />
+        <span id="messageNumber" class="error"></span><br />
+        <input type="text" id="email" name="userEmail" placeholder="email" />
+        <span id="emailError" class="error"></span><br />
+        <button type="submit">Submit</button>
+      </form>
+    </main>
+
+    <script>
+      const myForm = document.getElementById("myForm");
+
+      const nameInput = document.getElementById("name");
+      const messageInput = document.getElementById("messageUser");
+      const numberInput = document.getElementById("numberPhone");
+      const emailInput = document.getElementById("email");
+
+      const nameError = document.getElementById("nameError");
+      const messageError = document.getElementById("messageError");
+      const messageNumberError = document.getElementById("messageNumber");
+      const emailError = document.getElementById("emailError");
+
+      nameInput.addEventListener("input", validateName);
+      messageInput.addEventListener("input", validateMessage);
+      numberInput.addEventListener("input", validatePhoneNumber);
+      emailInput.addEventListener("input", validateEmail);
+
+      function validateName() {
+        const name = nameInput.value.trim();
+        if (!name) {
+          nameError.innerText = "Name is required.";
+        } else {
+          nameError.innerText = "";
+        }
+      }
+
+      function validateMessage() {
+        const message = messageInput.value.trim();
+        if (message.length < 5) {
+          messageError.innerText =
+            "Message must be at least 5 characters long.";
+        } else {
+          messageError.innerText = "";
+        }
+      }
+
+      function validatePhoneNumber() {
+        const phoneNumber = numberInput.value.trim();
+        const phonePattern = /^\+380\d{9}$/;
+        if (!phonePattern.test(phoneNumber)) {
+          messageNumberError.innerText =
+            "Phone number must start with +380 and be followed by 9 digits.";
+        } else {
+          messageNumberError.innerText = "";
+        }
+      }
+
+      function validateEmail() {
+        const email = emailInput.value.trim();
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+          emailError.innerText = 'Email must contain "@" and a dot.';
+        } else {
+          emailError.innerText = "";
+        }
+      }
+
+      myForm.addEventListener("submit", function (event) {
+        event.preventDefault(); // Зупиняємо стандартну відправку форми
+
+        // Викликати всі функції валідації
+        validateName();
+        validateMessage();
+        validatePhoneNumber();
+        validateEmail();
+
+        // Перевірити чи всі поля валідні
+        if (
+          !nameError.innerText &&
+          !messageError.innerText &&
+          !messageNumberError.innerText &&
+          !emailError.innerText
+        ) {
+          const formData = new FormData(myForm);
+          formData.append("user_id", 123);
+          formData.append("custom_field", "some value");
+
+          for (let data of formData.entries()) {
+            console.log(`${data[0]}: ${data[1]}`);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
