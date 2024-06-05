@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Slider</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    .slider {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      overflow: hidden;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+      min-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .slide img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    /* Стилі для кнопок навігації */
+    .prev,
+    .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(103, 103, 103, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 25%;
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+
+    /* Стилі для крапок навігації */
+    .dots {
+      text-align: center;
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+    }
+
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+
+    /* Активна крапка */
+    .active,
+    .dot:hover {
+      background-color: #717171;
+    }
+  </style>
+  <body>
+    <div class="slider">
+      <div class="slides">
+        <!-- Кожен слайд містить зображення -->
+        <div class="slide"><img src="image1.jpg" alt="Image 1" /></div>
+        <div class="slide"><img src="image2.jpg" alt="Image 2" /></div>
+        <div class="slide"><img src="image3.jpg" alt="Image 3" /></div>
+      </div>
+      <!-- Кнопки для навігації між слайдами -->
+      <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+      <button class="next" onclick="moveSlide(1)">&#10095;</button>
+      <!-- Крапки для навігації між слайдами -->
+      <div class="dots">
+        <span class="dot" onclick="currentSlide(0)"></span>
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+  <script>
+    let currentSlideIndex = 0; // Індекс поточного слайда
+
+    // Функція для показу слайда за індексом
+    function showSlide(index) {
+      const slides = document.querySelectorAll(".slide"); // Отримання всіх слайдів
+      const dots = document.querySelectorAll(".dot"); // Отримання всіх крапок
+
+      // Перевірка меж індексу
+      if (index >= slides.length) {
+        currentSlideIndex = 0;
+      } else if (index < 0) {
+        currentSlideIndex = slides.length - 1;
+      } else {
+        currentSlideIndex = index;
+      }
+
+      // Визначення зсуву для слайдів
+      const offset = -currentSlideIndex * 100;
+      document.querySelector(
+        ".slides",
+      ).style.transform = `translateX(${offset}%)`;
+
+      // Оновлення активної крапки
+      dots.forEach((dot) => dot.classList.remove("active"));
+      dots[currentSlideIndex].classList.add("active");
+    }
+
+    // Функція для перемикання слайдів на певну кількість
+    function moveSlide(direction) {
+      showSlide(currentSlideIndex + direction);
+    }
+
+    // Функція для встановлення поточного слайда
+    function currentSlide(index) {
+      showSlide(index);
+    }
+
+    // Автоматичне перемикання слайдів кожні 3 секунди
+    setInterval(() => {
+      moveSlide(1);
+    }, 3000);
+
+    // Ініціалізація першого слайда
+    showSlide(currentSlideIndex);
+  </script>
+</html>
