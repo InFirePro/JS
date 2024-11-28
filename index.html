@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Obliczenia</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+ <header class="header">
+     <div class="wrapper">
+    <h1>Obliczenia</h1>
+    <div class="line-select-container">
+      <label for="lineSelect" style="margin-right: 10px;">Wybierz linię</label>
+      <select id="lineSelect" onchange="changeLineColor()">
+        <option value="vt9">VT9</option>
+        <option value="vt8">VT8</option>
+        <option value="vt7">VT7</option>
+        <option value="vt6">VT6</option>
+        <option value="vt5">VT5</option>
+        <option value="vt4">VT4</option>
+        <option value="vt3">VT3</option>
+        <option value="vt2">VT2</option>
+      </select>
+      </div>
+    </div>
+  </header>
+  <main class="main-content">
+    <div class="wrapper__cal">
+      <!-- First calculator -->
+      <div class="calculator">
+        <h2>Pierwsze nalanie</h2>
+        <input type="text" id="orderNumber" placeholder="Wprowadź numer zamówienia">
+        <input type="text" id="weightPerItem1" placeholder="Waga pierwszego nalania (kg)">
+        <input type="text" id="quantityPerRow1" placeholder="Ilość świeczek w rzędzie">
+        <input type="text" id="totalRows1" placeholder="Ilość rzędów do pierwszego nalania">
+        <input type="text" id="currentWeight1" placeholder="Ilość parafiny w wózku (kg)">
+        <input type="text" id="currentQuantity1" placeholder="Obecna ilość">
+        <input type="text" id="requiredQuantity1" placeholder="Wymagana ilość">
+        <input type="button" value="Obliczyć" onclick="calculateTotalWeight1()">
+        <input type="text" id="result1" placeholder="Ilość parafiny do zamówienia I (kg)" readonly>
+      </div>
+
+      <!-- Second calculator -->
+      <div class="calculator" id="secondCalculator">
+        <h2>Drugie nalanie</h2>
+        <input type="text" id="weightPerItem2" placeholder="Waga drugiego nalania (kg)">
+        <input type="text" id="quantityPerRow2" placeholder="Ilość świeczek w rzędzie">
+        <input type="text" id="totalRows2" placeholder="Ilość rzędów do drugiego nalania">
+        <input type="text" id="currentWeight2" placeholder="Ilość parafiny w wózku (kg)">
+        <input type="text" id="currentQuantity2" placeholder="Obecna ilość">
+        <input type="text" id="requiredQuantity2" placeholder="Wymagana ilość">
+        <input type="button" value="Obliczyć" onclick="calculateTotalWeight2()">
+        <input type="text" id="result2" placeholder="Ilość parafiny do zamówienia II (kg)" readonly>
+      </div>
+
+      <!-- Advanced calculator -->
+      <div class="calculator">
+        <h2>Zaawansowany kalkulator</h2>
+       <input type="text" id="display" readonly>
+        <div class="row">
+            <input type="button" value="(" onclick="addToDisplay('(')">
+            <input type="button" value=")" onclick="addToDisplay(')')">
+            <input type="button" value="C" onclick="clearDisplay()">
+            <input type="button" value="←" onclick="deleteLast()">
+        </div>
+        <div class="row">
+            <input type="button" value="7" onclick="addToDisplay('7')">
+            <input type="button" value="8" onclick="addToDisplay('8')">
+            <input type="button" value="9" onclick="addToDisplay('9')">
+            <input type="button" value="/" onclick="addToDisplay('/')">
+        </div>
+        <div class="row">
+            <input type="button" value="4" onclick="addToDisplay('4')">
+            <input type="button" value="5" onclick="addToDisplay('5')">
+            <input type="button" value="6" onclick="addToDisplay('6')">
+            <input type="button" value="*" onclick="addToDisplay('*')">
+        </div>
+        <div class="row">
+            <input type="button" value="1" onclick="addToDisplay('1')">
+            <input type="button" value="2" onclick="addToDisplay('2')">
+            <input type="button" value="3" onclick="addToDisplay('3')">
+            <input type="button" value="-" onclick="addToDisplay('-')">
+        </div>
+        <div class="row">
+            <input type="button" value="0" onclick="addToDisplay('0')">
+            <input type="button" value="." onclick="addToDisplay('.')">
+            <input type="button" value="=" onclick="calculateAdvance()">
+            <input type="button" value="+" onclick="addToDisplay('+')">
+        </div>
+      </div>
+
+      <!-- Paraffin equalization calculator -->
+      <div class="calculator">
+        <h2>Wyrównanie Parafiny</h2>
+        <p>Obliczanie wyrównania ilości parafiny między wózkiem I a wózkiem II przy równym zużyciu do zera, kalkulator pokazuje, ile trzeba zamówić albo przenieść, aby wyrównać ilość parafiny.</p>
+        <input type="text" id="containerAWeight" placeholder="Ilość parafiny w wózku I nalanie (kg)">
+        <input type="text" id="containerAConsumption" placeholder="Waga pierwszego nalania (kg/jednostka)">
+        <input type="text" id="containerBWeight" placeholder="Ilość parafiny w wózku II nalanie (kg)">
+        <input type="text" id="containerBConsumption" placeholder="Waga drugiego nalania (kg/jednostka)">
+        <input type="text" id="rowsA" placeholder="Ilość rzędów między I i II nalaniem">
+        <input type="text" id="quantityPerRowA" placeholder="Ilość w rzędzie">
+        
+        <select id="calculationType">
+          <option value="equalize">Wyrównanie Parafiny</option>
+          <option value="transfer">Przenesienie Parafiny</option>
+        </select>
+
+        <input type="button" value="Wyrównaj" onclick="calculate()">
+        <input type="text" id="result" placeholder="Wynik" readonly>
+      </div>
+
+      <!-- Modal for warning -->
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+             <p>Uwaga! Obliczenia dotyczące transferu parafiny wymagają sprawdzenia blendu I i II nalania, aby były takie same. Zakaz przenoszenia różnych blendów parafiny pomiędzy I i II wózkami.</p>
+            <button id="modalConfirmButton">Kontynuuj</button>
+            <button id="modalCancelButton">Anuluj</button>
+        </div>
+      </div>
+
+      <!-- Table to display calculation history -->
+      <div class="history-section">
+        <table id="calculationHistory">
+          <thead>
+            <tr>
+              <th>Numer</th>
+              <th>Nazwa Linii</th>
+              <th>Kalkulator</th>
+              <th>Wartości Pól</th>
+              <th>Całkowita Waga</th>
+              <th>Nadmiar Parafiny</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+  </main>
+  <script src="scripts.js"></script>
+</body>
+</html>
+
+
+
+
+
+

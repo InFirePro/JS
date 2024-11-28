@@ -1,0 +1,514 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #e8f0fe;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.header {
+  background-color: #FF6347;
+  color: white;
+  padding: 1em 1em;
+  width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header.vt9 {
+  background-color: #FF6347; /* Tomato */
+}
+
+.header.vt8 {
+  background-color: #4CAF50; /* Green */
+}
+
+.header.vt7 {
+  background-color: #1E90FF; /* Dodger Blue */
+}
+
+.header.vt6 {
+  background-color: #9C27B0; /* Фіолетовий колір для лінії VT6 */
+}
+
+.header.vt5 {
+  background-color: #FFC107; /* Жовтий колір для лінії VT5 */
+}
+
+.header.vt4 {
+  background-color: #795548; /* Коричневий колір для лінії VT4 */
+}
+
+.header.vt3 {
+  background-color: #607D8B; /* Сірий колір для лінії VT3 */
+}
+
+.header.vt2 {
+  background-color: #E91E63; /* Рожевий колір для лінії VT2 */
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+.header .line-select-container {
+  display: flex;
+  align-items: center;
+}
+
+.header label {
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
+.header select {
+  padding: 0.5em;
+  border: none;
+  border-radius: 4px;
+  background-color: white;
+  color: #3b5998;
+  font-size: 1em;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em;
+}
+
+.wrapper__cal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
+  margin-bottom: 2em;
+  width: 100%;
+  max-width: 1250px;
+}
+
+.calculator {
+  background-color: #fdfdff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 2em;
+  max-width: 400px;
+}
+
+.calculator h2 {
+  color: #3b5998;
+  margin-bottom: 1em;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.calculator input[type="text"],
+.calculator select {
+  width: calc(105% - 2em);
+  padding: 0.5em;
+  margin: 0.5em 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+.calculator .row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.calculator .row input[type="button"] {
+  width: 22%;
+  padding: 1em;
+  margin: 0.5em 0;
+  border: none;
+  border-radius: 4px;
+  background-color: #3b5998;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.calculator .row input[type="button"]:hover {
+  background-color: #2a4373;
+}
+
+.search-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2em;
+  gap: 8px;
+}
+
+.search-section label {
+  font-size: 1em;
+  width: 60%;
+}
+
+.search-section input[type="text"] {
+  width: calc(50% - 2em);
+  padding: 0.5em 0.3em;
+  margin: 0.5em 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  width: 50%;
+}
+
+.search-section button {
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 4px;
+  background-color: #3b5998;
+  color: white;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s;
+  align-self: center;
+}
+
+.search-section button:hover {
+  background-color: #2a4373;
+}
+
+.history-section {
+  width: 100%;
+  max-width: 1200px;
+  overflow-x: auto;
+}
+
+.history-section table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.history-section th,
+.history-section td {
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  text-align: center;
+  font-size: 1em;
+}
+
+.history-section th {
+  background-color: #3b5998;
+  color: white;
+}
+
+.history-section tr:nth-child(even) {
+  background-color: #f1f1f1;
+}
+
+.history-section tr:hover {
+  background-color: #e0e0e0;
+}
+
+.history-section td {
+  background-color: #fff;
+}
+
+input[type="text"]::placeholder {
+  color: #999;
+}
+
+input[type="text"]:focus,
+select:focus {
+  outline: none;
+  border-color: #3b5998;
+  box-shadow: 0 0 5px rgba(59, 89, 152, 0.5);
+}
+
+button:focus {
+  outline: none;
+  border-color: #3b5998;
+  box-shadow: 0 0 5px rgba(59, 89, 152, 0.5);
+}
+
+.calculator input[type="button"][value="Obliczyć"] {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.8em;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+  width: 101%;
+}
+
+.calculator input[type="button"][value="Wyrównaj"] {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.8em;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+  width: 101%;
+}
+
+.calculator input[type="button"][value="Obliczyć"]:hover {
+  background-color: #357ABD;
+}
+
+.calculator input[type="button"][value="Obliczyć"]:active {
+  background-color: #2d5f8b;
+  transform: scale(0.98);
+}
+
+.calculator input[type="button"][value="Wyrównaj"]:hover {
+  background-color: #357ABD;
+}
+
+.calculator input[type="button"][value="Wyrównaj"]:active {
+  background-color: #2d5f8b;
+  transform: scale(0.98);
+}
+
+.line {
+  padding: 10px;
+  margin-bottom: 5px;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.line:hover {
+  background-color: #e0e0e0;
+}
+
+/* Адаптивність під телефон */
+
+@media (max-width: 768px) {
+  .header {
+    padding: 0.5em;
+  }
+
+  .wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header h1 {
+    font-size: 1.5em;
+    text-align: center;
+    width: 100%;
+  }
+
+  .line-select-container {
+    margin-top: 1em;
+    justify-content: center;
+  }
+
+  .line-select-container label {
+    margin-right: 0;
+    font-size: 1em;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 0.5em;
+  }
+
+  .line-select-container select {
+    width: 100%;
+}
+
+  .main-content {
+    padding: 1em 2em 1em 1em;
+  }
+
+  .wrapper__cal {
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .calculator {
+    width: 100%;
+    max-width: none;
+    padding: 1em;
+  }
+
+  .search-section {
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .search-section label {
+    width: 100%;
+  }
+
+  .search-section input[type="text"] {
+    width: 100%;
+  }
+
+  .history-section {
+    padding: 0 1em;
+  }
+
+  .history-section table {
+    font-size: 0.8em;
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+  }
+
+  .history-section th,
+  .history-section td {
+    padding: 0.5em;
+    display: block;
+    text-align: right;
+    position: relative;
+  }
+
+  .history-section th::before,
+  .history-section td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 1em;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  .history-section th {
+    background-color: #3b5998;
+    color: white;
+  }
+
+  .history-section tr {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+  }
+}
+@media (max-width: 480px) {
+  .header {
+    padding: 0.5em;
+  }
+
+  .header h1 {
+    font-size: 1.2em;
+    text-align: center;
+    width: 100%;
+  }
+
+  .line-select-container {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0.5em;
+  }
+
+  .line-select-container label {
+    margin-bottom: 0.5em;
+    font-size: 0.9em;
+  }
+
+  .line-select-container select {
+    width: 100%;
+    margin-bottom: 0.5em;
+  }
+}
+
+/* Modal Styles */
+/* Основні стилі для модального вікна */
+.modal {
+    display: none; /* Сховати модальне вікно за замовчуванням */
+    position: fixed; /* Фіксоване позиціонування */
+    z-index: 1000; /* Показувати поверх інших елементів */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Додає прокрутку, якщо потрібно */
+    background-color: rgba(0,0,0,0.5); /* Полупрозорий фон */
+}
+
+/* Контент модального вікна */
+.modal-content {
+    background-color: #fff; /* Білий фон модального вікна */
+    margin: 10% auto; /* Центрувати по вертикалі та горизонтально */
+    padding: 20px;
+    border: 1px solid #ddd; /* Світло-сірий бордер */
+    border-radius: 8px; /* Заокруглені кути */
+    width: 80%; /* Ширина модального вікна */
+    max-width: 500px; /* Максимальна ширина для великих екранів */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Легка тінь */
+}
+
+/* Кнопка закриття модального вікна */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #333; /* Темніший колір при наведенні */
+    text-decoration: none;
+    outline: none;
+}
+
+/* Стилі для тексту всередині модального вікна */
+p {
+    font-size: 16px;
+    color: #333; /* Темно-сірий текст */
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* Стилі для кнопок у модальному вікні */
+button {
+    background-color: #d9534f; /* Червоний фон кнопок */
+    color: #fff; /* Білий текст на кнопках */
+    border: none;
+    padding: 12px 20px; /* Відступи всередині кнопок */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 5px; /* Відступи між кнопками */
+    border-radius: 4px; /* Заокруглені кути кнопок */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Плавний перехід кольору фону */
+}
+
+button#modalConfirmButton {
+    background-color: #5bc0de; /* Синій фон для кнопки "Kontynuuj" */
+}
+
+button#modalCancelButton {
+    background-color: #d9534f; /* Червоний фон для кнопки "Anuluj" */
+}
+
+button:hover {
+    background-color: #c9302c; /* Темніший червоний колір при наведенні */
+}
+
+button#modalConfirmButton:hover {
+    background-color: #31b0d5; /* Темніший синій колір при наведенні */
+}
+
+button:focus {
+    outline: none; /* Видалити обводку при фокусуванні */
+}
+
+
+@media screen and (max-width: 300px) {
+    .modal-content {
+        width: 95%; /* Ширина модального вікна на мобільних пристроях */
+        padding: 15px; /* Зменшене відступи для мобільних пристроїв */
+    }
+}
